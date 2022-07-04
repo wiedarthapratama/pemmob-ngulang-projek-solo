@@ -8,6 +8,7 @@ import 'package:pemob_project/helper.dart';
 import 'package:pemob_project/models/home_model.dart';
 import 'package:pemob_project/pages/detail_page.dart';
 import 'package:pemob_project/pages/kategori_page.dart';
+import 'package:pemob_project/widgets/drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -40,20 +41,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Image.network(
           "https://bigsport.id/images/bsd.png",
           width: 100,
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              ))
-        ],
       ),
+      drawer: DrawerWidget(key: widget.key),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(

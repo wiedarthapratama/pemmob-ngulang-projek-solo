@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pemob_project/helper.dart';
 import 'package:pemob_project/models/detail_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:pemob_project/widgets/drawer_widget.dart';
 
 class DetailPage extends StatefulWidget {
   final String linkNya;
@@ -42,20 +43,14 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Image.network(
           "https://bigsport.id/images/bsd.png",
           width: 100,
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              ))
-        ],
       ),
+      drawer: DrawerWidget(key: widget.key),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
