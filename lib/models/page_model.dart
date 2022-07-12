@@ -9,16 +9,15 @@ class PageModel {
   // MainMenu? mainMenu;
   int? cartCount;
   String? features;
-  // List<Null>? provinsi;
+  List<Provinsi>? provinsi;
 
-  PageModel({
-    this.title,
-    this.page,
-    // this.package, this.historyBelanja, this.wishlist, this.invoice, this.shoppingCart, this.mainMenu,
-    this.cartCount,
-    this.features,
-    // this.provinsi
-  });
+  PageModel(
+      {this.title,
+      this.page,
+      // this.package, this.historyBelanja, this.wishlist, this.invoice, this.shoppingCart, this.mainMenu,
+      this.cartCount,
+      this.features,
+      this.provinsi});
 
   PageModel.fromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -43,10 +42,12 @@ class PageModel {
     // mainMenu = json['main_menu'] != null ? new MainMenu.fromJson(json['main_menu']) : null;
     cartCount = json['cart_count'];
     features = json['features'];
-    // if (json['provinsi'] != null) {
-    // 	provinsi = <Null>[];
-    // json['provinsi'].forEach((v) { provinsi!.add(new Null.fromJson(v)); });
-    // }
+    if (json['provinsi'] != null) {
+      provinsi = <Provinsi>[];
+      json['provinsi'].forEach((v) {
+        provinsi!.add(new Provinsi.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -86,7 +87,7 @@ class Page {
   int? idPost;
   String? postType;
   String? status;
-  Null? idCategory;
+  String? idCategory;
   String? name;
   String? title;
   String? excerpt;
@@ -95,8 +96,8 @@ class Page {
   String? fullImage;
   String? inputBy;
   String? inputDate;
-  Null? editBy;
-  Null? editDate;
+  String? editBy;
+  String? editDate;
   String? isDelete;
 
   Page(
@@ -208,20 +209,20 @@ class Page {
 
 // class 1 {
 // 	int? idMenu;
-// 	Null? parentId1;
-// 	Null? parentId2;
-// 	Null? parentId3;
+// 	String? parentId1;
+// 	String? parentId2;
+// 	String? parentId3;
 // 	int? menuPosition;
 // 	String? namaMenu;
-// 	Null? linkMenu;
-// 	Null? iconMenu;
+// 	String? linkMenu;
+// 	String? iconMenu;
 // 	String? menuType;
-// 	Null? inputBy;
-// 	Null? inputDate;
-// 	Null? updateBy;
-// 	Null? updateDate;
-// 	Null? deleteBy;
-// 	Null? deleteDate;
+// 	String? inputBy;
+// 	String? inputDate;
+// 	String? updateBy;
+// 	String? updateDate;
+// 	String? deleteBy;
+// 	String? deleteDate;
 // 	String? isDelete;
 // 	List<Null>? child;
 
@@ -277,20 +278,20 @@ class Page {
 
 // class 2 {
 // 	int? idMenu;
-// 	Null? parentId1;
-// 	Null? parentId2;
-// 	Null? parentId3;
+// 	String? parentId1;
+// 	String? parentId2;
+// 	String? parentId3;
 // 	int? menuPosition;
 // 	String? namaMenu;
 // 	String? linkMenu;
-// 	Null? iconMenu;
+// 	String? iconMenu;
 // 	String? menuType;
-// 	Null? inputBy;
-// 	Null? inputDate;
-// 	Null? updateBy;
-// 	Null? updateDate;
-// 	Null? deleteBy;
-// 	Null? deleteDate;
+// 	String? inputBy;
+// 	String? inputDate;
+// 	String? updateBy;
+// 	String? updateDate;
+// 	String? deleteBy;
+// 	String? deleteDate;
 // 	String? isDelete;
 // 	List<Null>? child;
 
@@ -381,3 +382,21 @@ class Page {
 // 		return data;
 // 	}
 // }
+class Provinsi {
+  int? idProvinsi;
+  String? provinsi;
+
+  Provinsi({this.idProvinsi, this.provinsi});
+
+  Provinsi.fromJson(Map<String, dynamic> json) {
+    idProvinsi = json['id_provinsi'];
+    provinsi = json['provinsi'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id_provinsi'] = this.idProvinsi;
+    data['provinsi'] = this.provinsi;
+    return data;
+  }
+}

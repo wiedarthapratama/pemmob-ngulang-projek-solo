@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pemob_project/pages/kontak_page.dart';
+import 'package:pemob_project/pages/ongkir_page.dart';
 import 'package:pemob_project/pages/tracking_page.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -27,7 +29,7 @@ class DrawerWidget extends StatelessWidget {
               // Update the state of the app
               // ...
               // Then close the drawer
-              Navigator.pop(context);
+              Get.to(() => CekOngkirPage(linkNya: 'cek-ongkir'));
             },
           ),
           ListTile(
@@ -45,7 +47,7 @@ class DrawerWidget extends StatelessWidget {
               // Update the state of the app
               // ...
               // Then close the drawer
-              Navigator.pop(context);
+              Get.to(() => KontakPage(linkNya: 'kontak'));
             },
           ),
         ],
